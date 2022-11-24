@@ -1,0 +1,10 @@
+<form>
+    <h2>Sign In</h2>
+    <input type="text" name="email" id="correo" [(ngModel)]="correo" placeholder="email" />
+    <input type="password" name="pass" id="pass" [(ngModel)]="pass" placeholder="Password" />
+    <button (click)="login()">Sign In</button>
+    <p class="signup">
+      Don't have an account ?
+      <a (click)="toggleForm()">Sign Up.</a>
+    </p>
+  </form>

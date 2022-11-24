@@ -1,0 +1,12 @@
+<form>
+    <h2>Create an account</h2>
+    <input type="text" name="username" id="username" [(ngModel)]="username" placeholder="Username" />
+    <input type="email" name="correo" id="correo" [(ngModel)]="correo" placeholder="Email Address" />
+    <input type="password" name="pass" id="pass" [(ngModel)]="pass" placeholder="Create Password" />
+    <input type="password" name="repPass" id="repPass" placeholder="Confirm Password" />
+    <button (click)="register()">Sign Up</button>
+    <p class="signup">
+      Already have an account ?
+      <a  (click)="toggleForm()">Sign in.</a>
+    </p>
+  </form>
