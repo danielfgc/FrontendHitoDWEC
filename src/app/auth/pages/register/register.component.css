@@ -62,3 +62,6 @@ form .signup a {
   form .signup a:hover {
     cursor: pointer;
   }
+  .fail{
+    color: rgb(156, 49, 49);
+  }

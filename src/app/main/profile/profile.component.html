@@ -1,1 +1,14 @@
-<p>profile works!</p>
+<div class="d-flex justify-content-center">
+    <div class="formBx">
+        <form>
+            <h2>Edit your profile</h2>
+            <input type="text" name="username" id="username"[(ngModel)]="username" placeholder="Username" />
+            <input type="email" name="correo" id="correo" [(ngModel)]="correo" placeholder="Email Address" />
+            <div class="d-flex justify-content-between">
+                <button class="primary" (click)="updateProfile()">Update profile</button>
+                <button class="danger"(click)="deleteProfile()">Delete profile</button>
+                <span>{{respuesta}}</span>
+            </div>
+        </form>
+    </div>
+</div>

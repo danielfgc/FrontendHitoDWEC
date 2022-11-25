@@ -1,0 +1,11 @@
+.cont{
+    background-color: white;
+}
+.openModal{
+    background-color: #677eff;
+    color: white;
+}
+.openModal:hover{
+    cursor: pointer;
+    background-color: #5568d3;
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,8 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit{
   correo:String = "";
   pass: String = "";
-  constructor(private authService: AuthService){}
+  respuesta:string="";
+  constructor(private authService: AuthService, private router:Router){}
   ngOnInit(): void {
     
   }
@@ -20,11 +22,12 @@ export class LoginComponent implements OnInit{
   login(){
     this.authService.login(this.correo, this.pass).subscribe((response:any)=> {
       console.log(response)
-      if(response.error!=null){
-        window.location.href="http://localhost:4200/home";
-        sessionStorage.setItem("user", response.data.user);
+      this.respuesta="";
+      if(response.error==null){
+        this.router.navigate(["/home/formalities"]);
+        sessionStorage.setItem("user", JSON.stringify(response.data.user));
         sessionStorage.setItem("token", response.data.token);
       }
-    });
+    },()=>{this.respuesta='Email or password are incorrect'});
   }
 }

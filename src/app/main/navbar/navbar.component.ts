@@ -9,5 +9,6 @@ export class NavbarComponent {
 
   signOut(){
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("user");
   }
 }

@@ -1,11 +1,28 @@
-<li *ngFor="let formality of formalities">
-    {{formality.title}}, {{formality.formalitytype}}, {{formality.formalitybody}}
-</li>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
+
+<div class="container cont">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Formality Type</th>
+      <th scope="col">Formality Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let formality of formalities">
+      <td> {{formality.title}}</td>
+      <td>{{formality.formalitytype}}</td>
+      <td>{{formality.formalitybody}}</td>
+    </tr>
+    <tr class="openModal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <td >+ Add a new formality</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
   <div>
     <app-formality-form></app-formality-form>
   </div>

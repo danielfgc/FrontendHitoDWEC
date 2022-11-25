@@ -10,12 +10,28 @@ export class RegisterComponent implements OnInit{
   username:String = "";
   correo:String = "";
   pass: String = "";
+  repPass: String = "";
+  respuesta:string="";
   constructor(private authService: AuthService){}
   ngOnInit(): void {
     
   }
   register(){
-    this.authService.register(this.correo,this.pass, this.username).subscribe((response)=>{console.log(response)})
+    if(this.pass!=this.repPass){
+      this.respuesta="Passwords don't match";
+      return;
+    }
+    this.authService.register(this.correo,this.pass, this.username).subscribe((response:any)=>{
+  
+        window.alert("registered successful");
+        this.respuesta="";
+        this.toggleForm();
+      
+    },(error)=>{
+      this.respuesta = `${error.error.message} `;
+      console.log(error);
+    });
+    
   }
   toggleForm(){
     const container:any = document.querySelector('.container');
