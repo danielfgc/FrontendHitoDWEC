@@ -18,6 +18,13 @@ export class LoginComponent implements OnInit{
     container.classList.toggle('active');
   }
   login(){
-    this.authService.login(this.correo, this.pass).subscribe((response)=> {console.log(response)});
+    this.authService.login(this.correo, this.pass).subscribe((response:any)=> {
+      console.log(response)
+      if(response.error!=null){
+        window.location.href="http://localhost:4200/home";
+        sessionStorage.setItem("user", response.data.user);
+        sessionStorage.setItem("token", response.data.token);
+      }
+    });
   }
 }
